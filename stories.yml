@@ -1,0 +1,64 @@
+version: "3.1"
+
+stories:
+- story: Greet the user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: Order coffee flow
+  steps:
+  - intent: order_coffee
+  - action: utter_ask_coffee_type
+  - intent: inform
+    entities:
+      - coffee_type: "Espresso"
+  - action: utter_ask_sugar
+  - intent: inform
+    entities:
+      - sugar
+  - slot_was_set:
+      - sugar    
+  - action: utter_order_confirmation
+
+
+- story: Cancel coffee order
+  steps:
+  - intent: order_coffee
+  - action: utter_ask_coffee_type
+  - intent: inform
+    entities:
+      - coffee_type
+  - action: utter_ask_sugar
+  - intent: inform
+    entities:
+      - sugar
+  - action: utter_order_confirmation
+  - intent: cancel_order
+  - action: utter_cancel_confirmation
+
+- story: Ask for popular coffees
+  steps:
+  - intent: ask_popular_coffees
+  - action: utter_popular_coffees
+
+- story: User asks for coffee recommendation based on weather
+  steps:
+  - intent: ask_coffee_weather
+  - action: action_suggest_coffee_based_on_weather
+   
+- story: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Payment Confirmation
+  steps:
+  - intent: confirm_payment
+  - action: action_confirm_payment
+  - action: action_restart
+
+- story: Suggest coffee recipes
+  steps:
+    - intent: ask_coffee_recipes
+    - action: action_suggest_coffee_recipes

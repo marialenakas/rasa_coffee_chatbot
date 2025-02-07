@@ -1,0 +1,145 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+    - good morning
+    - good evening
+    - howdy
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - take care
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - absolutely
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - no way
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you human?
+    - am I talking to a bot?
+- intent: order_coffee
+  examples: |
+    - I want coffee
+    - I want a coffee
+    - Get me coffee
+    - Can I order coffee?
+    - I need coffee
+    - Coffee please
+    - Order coffee
+    - Give me coffee
+    - I want to order coffee
+    - order coffee
+- intent: inform
+  examples: |
+    - Espresso
+    - I would like a Latte
+    - Americano 
+    - Cappuccino please
+    - I want [Espresso](coffee_type)
+    - Make it [Latte](coffee_type)
+    - [Cappuccino](coffee_type), please
+    - I would like a [Latte](coffee_type)
+    - [Espresso](coffee_type)
+    - No sugar, just [Espresso](coffee_type)
+    - Add [two spoons](sugar) of sugar
+    - No sugar
+    - [One spoon](sugar), please
+    - One spoon of sugar
+    - Two spoons of sugar
+    - No sugar in my coffee
+    - I want a black coffee with no sugar
+    - I would like [Latte](coffee_type)
+    - No sugar, please
+    - [No sugar](sugar)
+    - [One spoon](sugar)
+    - [Two spoons](sugar)
+    - [Americano](coffee_type)
+    - [Espresso](coffee_type)
+    - [No sugar](sugar)
+    - [Latte](coffee_type)
+    - [One spoon](sugar)
+- intent: cancel_order
+  examples: |
+    - I want to cancel my order
+    - Cancel my coffee
+    - Nevermind, I don't want coffee
+    - Can I cancel my order?
+    - Cancel order
+    - Drop my coffee order
+    - I changed my mind, cancel it
+    - I dont need the coffee anymore
+    - Abort the order
+    - Forget the coffee
+
+- intent: ask_popular_coffees
+  examples: |
+    - What are some popular coffee types?
+    - Suggest me a coffee
+    - Which coffee is best?
+    - Tell me about different types of coffee
+    - What coffee do you recommend?
+    - Suggest me a coffee type
+    - What coffees are trending?
+    - Which coffee do most people prefer?
+    - Whats a good coffee to try?
+    - Recommend a popular coffee
+
+- intent: confirm_payment
+  examples: |
+    - I want to pay now
+    - Process my payment
+    - Can I pay now?
+    - Complete my order
+    - Proceed with payment
+    - Confirm my purchase
+    - Im ready to pay
+    - Pay for the order
+    - Finish my payment
+    - Can you charge me now?
+
+- intent: ask_coffee_weather
+  examples: |
+    - What coffee should I drink based on the weather?
+    - Recommend me a coffee for this weather
+    - Should I drink hot or cold coffee today?
+    - Suggest me a coffee based on the temperature
+    - Is it a good day for hot coffee?
+    - What coffee do you suggest for today's weather?
+    - Based on the weather, what coffee should I get?
+    - Should I drink iced coffee today?
+    - Whats the best coffee for cold weather?
+    - Give me a weather-based coffee suggestion
+
+- intent: ask_coffee_recipes
+  examples: |
+    - Can you suggest me some coffee recipes?
+    - What are some popular coffee drinks?
+    - Recommend me a coffee recipe
+    - How can I make good coffee at home?
+    - Tell me a recipe for a coffee drink
+    - Give me a recipe for cappuccino
+    - Whats a simple coffee recipe?
+    - How do I make iced coffee?
+    - Suggest a new coffee drink for me
+    - Can you help me make a latte?
+
+- intent: nlu_fallback
+  examples: |
+    - ksjdhfksjdhfkj
+    - random gibberish
+    - nonsense text
+    - unknown command
