@@ -1,4 +1,4 @@
-# my_rasa_chatbot
+# rasa_coffee_chatbot
 # **Coffee Chatbot - README**
 
 ## **Project Overview**
