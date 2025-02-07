@@ -1,0 +1,77 @@
+version: '3.1'
+intents:
+- affirm
+- ask_popular_coffees
+- bot_challenge
+- cancel_order
+- deny
+- goodbye
+- greet
+- inform
+- order_coffee
+- confirm_payment
+- ask_coffee_weather
+- ask_coffee_recipes
+- nlu_fallback
+
+responses:
+  utter_greet:
+  - text: Hello! How can I help you today?
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_goodbye:
+  - text: Bye! Have a great day!
+  utter_ask_coffee_type:
+  - text: What type of coffee would you like to order? (e.g., Espresso, Latte, Cappuccino)
+  utter_ask_sugar:
+  - text: How much sugar would you like in your coffee? (e.g., No sugar, One spoon, Two spoons)
+  utter_order_confirmation:
+  - text: Your {coffee_type} coffee with {sugar} is on the way!
+  utter_cancel_confirmation:
+  - text: Your coffee order has been canceled.
+  utter_popular_coffees:
+  - text: 'Some popular coffee types are: Espresso, Cappuccino, Latte, Americano, Macchiato.'
+  utter_ask_for_payment:
+    - text: "Would you like to proceed with the payment?"
+  utter_payment_declined:
+    - text: "Your payment has been declined. Please try again."
+  utter_ask_coffee_weather:
+    - text: "Would you like me to recommend a coffee based on the current weather?"
+  utter_ask_coffee_recipes:
+    - text: "Would you like to see some popular coffee recipes or suggestions for coffee drinks?"
+  utter_default_fallback:
+    - text: "I'm sorry, I didn't understand that. Can you please rephrase?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+entities:
+- sugar
+- coffee_type
+
+slots:
+  coffee_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: coffee_type
+   
+
+  sugar:
+    type: text
+    mappings:
+    - type: from_text
+      entity: sugar
+   
+
+actions:
+- utter_ask_sugar
+- utter_order_confirmation
+- utter_popular_coffees
+- utter_cancel_confirmation
+- utter_greet
+- utter_ask_coffee_type
+- action_order_coffee
+- action_confirm_payment
+- action_suggest_coffee_based_on_weather
+- action_suggest_coffee_recipes
