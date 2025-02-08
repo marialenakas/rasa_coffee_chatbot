@@ -120,7 +120,7 @@ Scenario 4 belongs in requirement 2
 
 Scenario 5-6 belong in requirement 3
 
-Scenario 7 belong in requirement 4
+Scenario 7 belongs in requirement 4
 ```
 Scenario 1: Ordering and Canceling Coffee
 
