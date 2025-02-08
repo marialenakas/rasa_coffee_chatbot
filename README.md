@@ -71,17 +71,17 @@ You can activate your enviroment with this command
 conda activate rasa_env
 ```
 If you have anacoda to your computer, open it, on the left side it has "enviroments"
----
-click on it 
----
+
+Click on it 
+
 Then click on "create" button
----
-name your enviroment rasa_env 
----
+
+Name your enviroment rasa_env 
+
 run the enviroment
----
+
 click open in terminal
----
+
 you made it to rasa env!
 
 In every case make sure you are on the right folder, else type 
