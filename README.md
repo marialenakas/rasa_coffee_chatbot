@@ -1,24 +1,58 @@
 # rasa_coffee_chatbot
 # **Coffee Chatbot - README**
 
-## **Project Overview**
+## **1. Project Domain and Motivation**
+The Coffee Chatbot is a conversational AI assistant designed to help users order coffee, receive recommendations based on the weather, discover coffee recipes, and more. This project showcases a practical application of chatbot technologies combined with real-time data from external APIs to create a personalized and interactive user experience.
 
-Ένας διαλογικός πράκτορας βασισμένος στο **Rasa**, ο οποίος βοηθά τους χρήστες να παραγγείλουν καφέ, να ακυρώσουν την παραγγελία τους, να λάβουν συστάσεις καφέ με βάση τον καιρό, και να δουν συνταγές καφέ από ένα πραγματικό API.
-
----
-
-## **Project Features**
-
-1. **Order Coffee**: Δυνατότητα παραγγελίας καφέ με προσαρμοσμένες επιλογές για τύπο καφέ και ποσότητα ζάχαρης.
-2. **Cancel Order**: Ακύρωση παραγγελίας σε οποιαδήποτε στιγμή της συνομιλίας.
-3. **Suggest popular coffees**: Πρόταση ορισμένων δημοφιλών καφέδων.
-4. **Payment Confirmation**: Ενσωματωμένη προσομοίωση πληρωμής. 
-5. **Weather-Based Coffee Suggestions**: Χρήση του OpenWeatherMap API για συστάσεις ζεστού ή κρύου καφέ.
-6. **Coffee Recipe Recommendations**: Χρήση ενός πραγματικού API για συνταγές καφέ.
-7. **Fallback Responses**: Χειρισμός μη αναγνωρισμένων εισόδων.
 
 ---
 
+## **2. Implemented Scenarios**
+
+1. **Order Coffee**: Ability to order coffee with customized options for coffee type and sugar quantity.  
+2. **Cancel Order**: Cancel an order at any point during the conversation.  
+3. **Suggest Popular Coffees**: Suggest a list of popular coffee types.  
+4. **Payment Confirmation**: Built-in payment confirmation simulation.  
+5. **Weather-Based Coffee Suggestions**: Use the OpenWeatherMap API to suggest hot or cold coffee based on the weather.  
+6. **Coffee Recipe Recommendations**: Use a real API to provide coffee recipes.  
+7. **Fallback Responses**: Handle unrecognized user inputs gracefully.
+
+---
+
+## **3. Integrated Data Sources**
+1. **OpenWeatherMap API:** Fetches real-time weather data to suggest hot or cold coffee.
+   - **Rationale:** Improves the user experience by making personalized recommendations based on external factors like weather.
+2. **Spoonacular API:** Dynamically fetches creative coffee recipes.
+   - **Rationale:** Adds a layer of engagement by suggesting various ways users can enjoy their coffee.
+
+---
+
+## **4. Challenges and Solutions**
+- **Challenge:** Handling fallback responses effectively.  
+  **Solution:** Integrated an `nlu_fallback` intent and configured the fallback policies.
+  
+- **Challenge:** Managing dynamic API interactions.  
+  **Solution:** Implemented proper error handling in the `actions.py` to inform users if an API request fails.
+
+- **Challenge:** Ensuring smooth conversation flow.  
+  **Solution:** Optimized the `MemoizationPolicy` and `RulePolicy` for context-sensitive responses.
+
+---
+## **5. Setting Up Keys and Credentials**
+1. **OpenWeatherMap API:**  
+   - Register at [OpenWeatherMap](https://openweathermap.org/) and get an API key.  
+   - Set it in `actions.py`:  
+     ```python
+     api_key_weather = "YOUR_OPENWEATHERMAP_API_KEY"
+     ```
+
+2. **Spoonacular API:**  
+   - Register at [Spoonacular](https://spoonacular.com/) and get an API key.  
+   - Set it in `actions.py`:  
+     ```python
+     api_key_recipes = "YOUR_SPOONACULAR_API_KEY"
+     ```
+---     
 ## **Installation**
 
 ### **1. Clone the Repository**
@@ -31,7 +65,6 @@ cd <your-repository-directory>
 ```bash
 conda activate rasa_env
 ```
-> **Σημείωση**: Έχεις ήδη δημιουργήσει και εγκαταστήσει το περιβάλλον μέσω της Anaconda, οπότε παραλείπεις το `conda create` βήμα.
 
 ---
 
@@ -48,13 +81,12 @@ rasa train
 ```
 
 ### **5. Run the Action Server**
-Ανοίγεις ένα νέο τερματικό, πηγαίνεις στον κατάλογο του project, και εκτελείς:
 ```bash
 rasa run actions
 ```
 
 ### **6. Start the Rasa Server**
-Σε άλλο τερματικό:
+In a different terminal:
 ```bash
 rasa shell
 ```
