@@ -71,11 +71,17 @@ You can activate your enviroment with this command
 conda activate rasa_env
 ```
 If you have anacoda to your computer, open it, on the left side it has "enviroments"
+---
 click on it 
+---
 Then click on "create" button
+---
 name your enviroment rasa_env 
+---
 run the enviroment
+---
 click open in terminal
+---
 you made it to rasa env!
 
 In every case make sure you are on the right folder, else type 
@@ -130,33 +136,6 @@ Scenario 3: Suggesting Popular Coffees
 User: suggest coffee  
 Bot: Some popular coffee types are: Espresso, Cappuccino, Latte, Americano, Macchiato.
 
----
-
-## **Core Intents και Δράσεις**
-
-| **Intent**            | **Παραδείγματα**                                       | **Bot Response / Action**                         |
-|----------------------|--------------------------------------------------------|--------------------------------------------------|
-| `order_coffee`        | "I want to order coffee"                              | Ζητάει τύπο καφέ και προτίμηση ζάχαρης            |
-| `cancel_order`        | "Cancel my order"                                     | Ακυρώνει την παραγγελία                           |
-| `confirm_payment`     | "I want to pay now"                                   | Επιβεβαιώνει την πληρωμή                          |
-| `ask_popular_coffees` | "What are some popular coffee types?"                 | Παρουσιάζει δημοφιλείς καφέδες                    |
-| `ask_coffee_weather`  | "Recommend a coffee based on weather"                 | Προτείνει καφέ με βάση τον καιρό                  |
-| `ask_coffee_recipes`  | "Can you suggest me some coffee recipes?"             | Παρουσιάζει συνταγές καφέ από το API              |
-| `nlu_fallback`        | "τυχαίο κείμενο"                                      | Ενεργοποιεί fallback                              |
-
----
-
-## **Real-world APIs**
-1. **OpenWeatherMap API**: Προσφέρει δυναμικές συστάσεις για ζεστά ή κρύα ροφήματα με βάση τον καιρό.
-2. **Coffee Recipes API**: Παρέχει συνταγές καφέ.
-
----
-
-## **APIs Configuration**
-Βεβαιώσου ότι το αρχείο **actions.py** περιέχει σωστά τα API keys:
-```python
-api_key_weather = "YOUR_OPENWEATHERMAP_API_KEY"
-api_key_recipes = "YOUR_RECIPES_API_KEY"
 ```
 
 ---
