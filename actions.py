@@ -47,7 +47,7 @@ class ActionSuggestCoffeeBasedOnWeather(Action):
         return "action_suggest_coffee_based_on_weather"
 
     def run(self, dispatcher: CollectingDispatcher, tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        api_key = "f3d4eba9b4969077383320d1fd4e2d91"  # Σωστό API Key
+        api_key = "YOUR_API_KEY" #PUT YOUR API KEY 
         city = "Athens"
 
         url = "http://api.openweathermap.org/data/2.5/weather"
@@ -55,10 +55,10 @@ class ActionSuggestCoffeeBasedOnWeather(Action):
 
         try:
             response = requests.get(url, params=params)
-            print(f"Status code: {response.status_code}")  # Εμφάνιση του status code
+            print(f"Status code: {response.status_code}")  
             response.raise_for_status()
             weather_data = response.json()
-            print(weather_data)  # Εμφάνιση της απάντησης API
+            print(weather_data)  
 
             if "main" not in weather_data:
                 dispatcher.utter_message(text=f"Could not find weather data for {city}.")
@@ -88,7 +88,7 @@ class ActionSuggestCoffeeRecipes(Action):
         return "action_suggest_coffee_recipes"
 
     def run(self, dispatcher: CollectingDispatcher, tracker, domain):
-        api_key = "8addf37a74b9438fbd2c269c76402436"
+        api_key = "YOUR_API_KEY" #PUT YOUR API KEY 
         query = "coffee"
         url = f"https://api.spoonacular.com/recipes/complexSearch?query={query}&number=3&apiKey={api_key}"
 
