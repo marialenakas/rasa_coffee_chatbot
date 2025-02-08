@@ -23,6 +23,7 @@ There were 4 requirements, every task has a parenthesis of the requirement that 
 ## **3. Integrated Data Sources**
 1. **OpenWeatherMap API:** Fetches real-time weather data to suggest hot or cold coffee.
    - **Rationale:** Improves the user experience by making personalized recommendations based on external factors like weather.
+   
 2. **Spoonacular API:** Dynamically fetches creative coffee recipes.
    - **Rationale:** Adds a layer of engagement by suggesting various ways users can enjoy their coffee.
 
@@ -113,6 +114,13 @@ rasa shell
 ---
 
 ## **6. Example Conversation: Full Interaction**
+Scenarios 1-3 belong in requirement 1
+
+Scenario 4 belongs in requirement 2
+
+Scenario 5-6 belong in requirement 3
+
+Scenario 7 belong in requirement 4
 ```
 Scenario 1: Ordering and Canceling Coffee
 
@@ -136,34 +144,40 @@ Scenario 3: Suggesting Popular Coffees
 User: suggest coffee  
 Bot: Some popular coffee types are: Espresso, Cappuccino, Latte, Americano, Macchiato.
 
-```
+Scenario 4: Payment (mockup)
+User: I want to pay now 
+Bot: Your payment has been processed, enjoy your coffee!
 
+Scenario 5: Suggesting Coffee based on the weather
+User: Suggesting me a Coffee based on the weather 
+Bot: 🌡️ The temperature in {city} is {temperature}°C. I recommend a hot coffee like Espresso or Cappuccino! ☕ # if the weather is under 15 °C
+
+Scenario 6: Suggesting a coffee recipe 
+User: Can you suggest me some coffee recipes?
+Bot: Here are some popular coffee recipes: {', '.join(recipes)}
+
+Scenario 7: Fallback responce 
+User: ldnclsm;dsc 
+Bot: I'm sorry, I didn't understand that. Can you please rephrase?
+```
 ---
+## **7. Dialog Policy Experimentation| bonus** 
+Initial Configuration:
+Used the default MemoizationPolicy and RulePolicy.
 
-## **Fallback Handling**
-Η πτώση στην προεπιλεγμένη απάντηση γίνεται μέσω των παρακάτω:
-- Ορισμός intent `nlu_fallback`.
-- Ρύθμιση κανόνα fallback στο `rules.yml`.
+Modifications:
+Added and tuned the nlu_fallback intent to improve error handling.
+Expanded the training data with more intent examples to reduce confusion.
 
----
-
-## **Testing**
-### **Interactive Mode**
-Χρησιμοποίησε:
-```bash
-rasa interactive
-```
-
-### **Manual Testing**
-Μπορείς να δοκιμάσεις παραγγελίες καφέ, ακυρώσεις, και API συστάσεις με το:
-```bash
-rasa shell
-```
+Results and Insights:
+Improved User Experience: The chatbot handles unexpected inputs better.
+Better Context Handling: Optimized policies provide a smoother conversation flow.
+Higher Accuracy: More training examples improved the model's intent classification
 
 ---
 
 ## **Future Enhancements**
-- Προσθήκη voice input με speech recognition.
-- Διαχείριση ιστορικού παραγγελιών μέσω βάσης δεδομένων.
+- Add voice input with speech recognition.
+- Order history.
 
 ---
